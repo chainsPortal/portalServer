@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string("symbol");
             $table->string("logo")->nullable();
             $table->string("chain_from_id");
-            $table->string("chain_from_token_address");
+            $table->string("chain_from_asset_address");
             $table->string("status");
             $table->string("manager");
             $table->string("feeRemitance");

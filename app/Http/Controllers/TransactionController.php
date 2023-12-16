@@ -536,8 +536,7 @@ class TransactionController extends Controller
     public function ValidatorComfirmIncommingTransaction(request $request){
         $validator = Validator::make($request->all(), [
             "id" => "required",
-            "valid" => "required|boolean",
-            "gasused" =>  "required"
+            "valid" => "required|boolean"
       ]);
 
       if ($validator->fails()) {
@@ -548,7 +547,7 @@ class TransactionController extends Controller
       
       $transaction = transaction::findOrFail($request->id);
        if($request->valid){
-            $transaction->status = 'Validated';
+            $transaction->status = 'Completed';
             }else{
               $transaction->status = 'invalid';  
             }
