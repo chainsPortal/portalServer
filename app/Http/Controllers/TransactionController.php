@@ -551,12 +551,12 @@ class TransactionController extends Controller
             }else{
               $transaction->status = 'invalid';  
             }
-           $networkfee =  networkfee::where('chain_id' , $transaction->chain_id)->first();
-            if(isset($networkfee) && $request->gasused != '0'){
-                $networkfee->avarage_validator = ($networkfee->avarage_validator + $request->gasused) / 2;
-                $networkfee->last_validator = $request->gasused;
-                $networkfee->save();
-               }
+        //    $networkfee =  networkfee::where('chain_id' , $transaction->chain_id)->first();
+        //     if(isset($networkfee) && $request->gasused != '0'){
+        //         $networkfee->avarage_validator = ($networkfee->avarage_validator + $request->gasused) / 2;
+        //         $networkfee->last_validator = $request->gasused;
+        //         $networkfee->save();
+        //        }
           $transaction->completed_at = Carbon::now();
           $transaction->save();
           $response['code'] = '200';
